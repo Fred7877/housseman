@@ -26,3 +26,9 @@
 
 ###### Installation des assets
 `adminlte:install --force --only=assets.`
+
+## Hash Id
+`composer require vinkla/hashids`
+Documentation :
+
+([https://sampo.co.uk/blog/masking-ids-in-urls-using-hash-ids-in-laravel](https://sampo.co.uk/blog/masking-ids-in-urls-using-hash-ids-in-laravel "https://sampo.co.uk/blog/masking-ids-in-urls-using-hash-ids-in-laravel"))

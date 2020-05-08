@@ -25,3 +25,13 @@ Route::get('/admin/users', function () {
     return view('admin.users');
 });
 
+Route::prefix('admin')->namespace('Admin')->group(function () {
+    Route::get('users', 'UserController@index')->name('user.index');
+    Route::get('create/user', 'UserController@create')->name('create.user');
+    Route::post('store/user', 'UserController@store')->name('store.user');
+    Route::get('list-users', 'UserController@list')->name('list.users');
+    Route::get('prestations', 'PrestationController@index')->name('prestation.index');
+    Route::get('list-transactions', 'TransactionController@list')->name('transaction.list');
+
+
+});
