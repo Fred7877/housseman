@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+    @include('flash-message')
     <p>Welcome to this beautiful admin panel.</p>
 @stop
 

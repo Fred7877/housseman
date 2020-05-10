@@ -167,6 +167,7 @@ return [
          */
         Yajra\DataTables\DataTablesServiceProvider::class,
         Vinkla\Hashids\HashidsServiceProvider::class,
+        Tightenco\Ziggy\ZiggyServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -30,8 +30,12 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('create/user', 'UserController@create')->name('create.user');
     Route::post('store/user', 'UserController@store')->name('store.user');
     Route::get('list-users', 'UserController@list')->name('list.users');
-    Route::get('prestations', 'PrestationController@index')->name('prestation.index');
-    Route::get('list-transactions', 'TransactionController@list')->name('transaction.list');
 
+    Route::get('prestations', 'PrestationController@index')->name('prestation.index');
+    Route::get('prestation/create', 'PrestationController@create')->name('prestation.create');
+    Route::post('prestation/store', 'PrestationController@store')->name('prestation.store');
+    Route::get('prestations/{prestation}/edit', 'PrestationController@edit')->name('prestation.edit');
+    Route::post('prestation/{prestation}', 'PrestationController@update')->name('prestation.update');
+    Route::get('list-prestations', 'PrestationController@list')->name('prestations.list');
 
 });
