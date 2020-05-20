@@ -3,10 +3,10 @@
 @section('content_header')
     <div class="row">
         <div class="col">
-            <h1 class="m-0 text-dark"> Prestations </h1>
+            <h1 class="m-0 text-dark"> CLients </h1>
         </div><!-- /.col -->
         <div class="col">
-            <a href="{{ route('prestation.create') }}">
+            <a href="{{ route('customers.create') }}">
                 <button class="btn btn-success float-right">Create</button>
             </a>
         </div>
@@ -14,19 +14,16 @@
 @endsection
 
 @section('content')
-    <table id="tablePrestations" class="table table-striped table-bordered">
+    <table id="myTable" class="table table-striped table-bordered">
         <thead>
         <th>
-            Id
+            Nom entreprise
         </th>
         <th>
-            Libelle
+            Contact
         </th>
         <th>
-            Prix de base
-        </th>
-        <th>
-            Détails
+            Email
         </th>
         <th>
             Actions
@@ -35,40 +32,46 @@
         <tbody>
         </tbody>
     </table>
-
-    @csrf
 @endsection
 
 @section('js')
-    @parent
     @routes
 
+    @parent
     <script>
         $(document).ready(function () {
-            var tablePrestations = $('#tablePrestations').DataTable(
+            let url = route('customer.list');
+            var tableCustomers =  $('#myTable').DataTable(
                 {
                     processing: true,
                     serverSide: true,
                     ajax: {
-                        url: '{{ route('prestations.list') }}',
+                        url: url,
                         type: 'GET',
                     },
                     columns: [
-                        {data: 'id'},
-                        {data: 'libelle'},
-                        {data: 'price'},
-                        {data: 'details'},
+                        {
+                            data: 'name', render: function (data, type, row) {
+                                return row.customerable.name;
+                            }, name: 'customers.id'
+                        },
+                        {
+                            data: 'customerable.contact_first_name', render: function (data, type, row) {
+                                return row.customerable.contact_first_name + ' ' + row.customerable.contact_last_name;
+                            }, name: 'customers.id'
+                        },
+                        {data: 'email', width: '20%'},
                         {
                             data: 'actions', render: function (data, type, row) {
                                 html = "<div class='float-right'>" +
                                     "<div class='row'>" +
                                     "<div class='col-md-5 col-lg-5'>" +
-                                    "<a href='" + route('prestation.edit', [row.id]) + "'>" +
+                                    "<a href='" + route('customers.edit', [row.id]) + "'>" +
                                     "<button type='button' class='btn btn-primary btn-sm'>Modifier</button>" +
                                     "</a>" +
                                     "</div>" +
                                     "<div class='col-md-5 col-lg-5'>" +
-                                    "<button type='button' data-idPrestation='" + row.id + "' class='btn btn-danger btn-sm delete-prestation'>Supprimer</button>" +
+                                    "<button type='button' data-idCustomer='" + row.id + "' class='btn btn-danger btn-sm customer'>Supprimer</button>" +
                                     "</div>" +
                                     "</div>" +
                                     "</div>";
@@ -78,9 +81,9 @@
                     ],
                     "drawCallback": function (settings) {
                         // Action supprimer
-                        $('.delete-prestation').on('click', function (e) {
+                        $('.customer').on('click', function (e) {
                             Swal.fire({
-                                title: 'Supprimer cette prestation ?',
+                                title: 'Supprimer ce client ?',
                                 showCancelButton: true,
                                 confirmButtonColor: '#3085d6',
                                 cancelButtonColor: '#d33',
@@ -95,13 +98,13 @@
 
                                     $.ajax({
                                         method: "post",
-                                        url: route('prestation.delete', [e.target.dataset.idprestation]),
+                                        url: route('customer.delete', [e.target.dataset.idcustomer]),
                                     }).done(function (msg) {
-                                        tablePrestations.draw();
+                                        tableCustomers.draw();
                                         if (msg === 'ok') {
                                             Swal.fire(
                                                 'Supprimer !',
-                                                'La prestation a été supprimée',
+                                                'Le client a été supprimé',
                                                 'success'
                                             )
                                         }
@@ -113,6 +116,5 @@
                 }
             );
         });
-
     </script>
 @stop

@@ -211,13 +211,33 @@ return [
         [
             'text' => 'Users',
             'url'  => 'admin/users',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-users-cog',
         ],
         'GESTION',
         [
             'text' => 'Prestations',
             'url'  => 'admin/prestations',
+            'icon' => 'fas fa-concierge-bell',
+        ],
+        [
+            'text' => 'Facturation',
+            'url'  => 'admin/invoices',
+            'icon' => 'fas fa-file-invoice-dollar',
+        ],
+        [
+            'text' => 'Devis',
+            'url'  => 'admin/quotes',
+            'icon' => 'fas fa-file-invoice',
+        ],
+        [
+            'text' => 'Clients',
+            'url'  => 'admin/customers',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Evènements',
+            'url'  => 'admin/events',
+            'icon' => 'far fa-calendar-alt',
         ],
     ],
 

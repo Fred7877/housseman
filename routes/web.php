@@ -13,17 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/admin', function () {
     return view('admin.dashboard');
-});
-
-Route::get('/admin/users', function () {
-    return view('admin.users');
-});
+})->name('admin.dashboard');
 
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('users', 'UserController@index')->name('user.index');
@@ -37,5 +29,21 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('prestations/{prestation}/edit', 'PrestationController@edit')->name('prestation.edit');
     Route::post('prestation/{prestation}', 'PrestationController@update')->name('prestation.update');
     Route::get('list-prestations', 'PrestationController@list')->name('prestations.list');
+    Route::post('prestation/{prestation}/delete', 'PrestationController@delete')->name('prestation.delete');
+
+    Route::get('invoices', 'InvoiceController@index')->name('invoice.index');
+    Route::get('quotes', 'QuoteController@index')->name('quote.index');
+
+    Route::get('customers', 'CustomerController@index')->name('customer.index');
+
+    Route::get('list-customers', 'CustomerController@list')->name('customer.list');
+    Route::get('customers/create', 'CustomerController@create')->name('customers.create');
+    Route::post('customers/store', 'CustomerController@store')->name('customers.store');
+
+    Route::get('customers/{customer}/edit', 'CustomerController@edit')->name('customers.edit');
+    Route::post('customers/{customer}', 'CustomerController@update')->name('customers.update');
+    Route::post('customer/{customer}/delete', 'CustomerController@delete')->name('customer.delete');
+
+    Route::get('events', 'EventController@index')->name('event.index');
 
 });

@@ -17,6 +17,8 @@ class CreateEvents extends Migration
             $table->integerIncrements('id');
             $table->string('title')->nullable();
             $table->text('detail');
+            $table->dateTime('begin');
+            $table->dateTime('end');
             $table->timestamps();
         });
     }

@@ -44,6 +44,18 @@ class PrestationController extends Controller
         return redirect()->route('prestation.index')->with('success','Prestastion created successfully!');
     }
 
+    public function delete(Prestation $prestation)
+    {
+        if(request()->ajax()){
+
+            $prestation->delete();
+
+            return 'ok';
+        }
+
+        return '';
+    }
+
     public function list()
     {
         if(request()->ajax()) {

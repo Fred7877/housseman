@@ -15,10 +15,10 @@ class CreateOrganizations extends Migration
     {
         Schema::create('organizations', function (Blueprint $table) {
             $table->integerIncrements('id');
-            $table->string('siret');
-            $table->string('name');
-            $table->string('contact_first_name')->unique();
-            $table->string('contact_last_name')->unique();
+            $table->string('siret')->nullable();
+            $table->string('name')->unique();
+            $table->string('contact_first_name');
+            $table->string('contact_last_name');
             $table->timestamps();
             $table->softDeletes();
         });
