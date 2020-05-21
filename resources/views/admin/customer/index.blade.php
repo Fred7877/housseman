@@ -6,7 +6,7 @@
             <h1 class="m-0 text-dark"> CLients </h1>
         </div><!-- /.col -->
         <div class="col">
-            <a href="{{ route('customers.create') }}">
+            <a href="{{ route('customer.create') }}">
                 <button class="btn btn-success float-right">Create</button>
             </a>
         </div>
@@ -40,7 +40,7 @@
     @parent
     <script>
         $(document).ready(function () {
-            let url = route('customer.list');
+            let url = route('customers.list');
             var tableCustomers =  $('#myTable').DataTable(
                 {
                     processing: true,
@@ -66,7 +66,7 @@
                                 html = "<div class='float-right'>" +
                                     "<div class='row'>" +
                                     "<div class='col-md-5 col-lg-5'>" +
-                                    "<a href='" + route('customers.edit', [row.id]) + "'>" +
+                                    "<a href='" + route('customer.edit', [row.id]) + "'>" +
                                     "<button type='button' class='btn btn-primary btn-sm'>Modifier</button>" +
                                     "</a>" +
                                     "</div>" +

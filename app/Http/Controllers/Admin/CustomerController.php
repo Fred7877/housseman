@@ -19,7 +19,7 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        return view('admin.customer.index');
+        return view('admin.customers.index');
     }
 
     public function create()
@@ -54,7 +54,7 @@ class CustomerController extends Controller
             ]
         ));
 
-        return redirect()->route('customer.index')->with('success','The customer updated successfully!');
+        return redirect()->route('customers.index')->with('success','The customer updated successfully!');
     }
 
     public function delete(Customer $customer)
@@ -83,7 +83,7 @@ class CustomerController extends Controller
             $organisation->customer()->save($customer);
         });
 
-        return redirect()->route('customer.index')->with('success', 'Nouveau client enregistré !');
+        return redirect()->route('customers.index')->with('success', 'Nouveau client enregistré !');
     }
 
     public function list()

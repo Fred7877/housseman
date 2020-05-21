@@ -16,9 +16,10 @@ class CreateEvents extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->integerIncrements('id');
             $table->string('title')->nullable();
-            $table->text('detail');
-            $table->dateTime('begin');
-            $table->dateTime('end');
+            $table->text('details')->nullable();
+            $table->timestamp('begin')->nullable();
+            $table->timestamp('end')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

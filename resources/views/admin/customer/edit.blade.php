@@ -17,7 +17,7 @@
     <section class="content">
         <div class="col-md-6">
             <div class="card card-primary">
-                <form method="post" action="{{ route('customers.update', [$customer->id]) }}">
+                <form method="post" action="{{ route('customer.update', [$customer->id]) }}">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">

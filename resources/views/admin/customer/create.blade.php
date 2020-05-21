@@ -17,7 +17,7 @@
     <section class="content">
         <div class="col-md-6">
             <div class="card card-primary">
-                <form method="post" action="{{ route('customers.store') }}">
+                <form method="post" action="{{ route('customer.store') }}">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
