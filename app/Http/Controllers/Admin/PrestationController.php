@@ -34,17 +34,17 @@ class PrestationController extends Controller
     {
         $prestation->update($request->all());
 
-        return redirect()->route('prestation.index')->with('success','Prestation updated successfully!');
+        return redirect()->route('prestations.index')->with('success','Prestation updated successfully!');
     }
 
     public function store(StorePrestationRequest $request)
     {
         Prestation::create($request->all());
 
-        return redirect()->route('prestation.index')->with('success','Prestastion created successfully!');
+        return redirect()->route('prestations.index')->with('success','Prestastion created successfully!');
     }
 
-    public function delete(Prestation $prestation)
+    public function destroy(Prestation $prestation)
     {
         if(request()->ajax()){
 

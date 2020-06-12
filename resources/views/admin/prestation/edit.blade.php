@@ -6,7 +6,7 @@
             <h1 class="m-0 text-dark"> Créer une nouvelle prestation </h1>
         </div><!-- /.col -->
         <div class="col">
-            <a href="{{ route('prestation.index') }}">
+            <a href="{{ route('prestations.index') }}">
                 <button class="btn btn-danger float-right">Annuler</button>
             </a>
         </div>
@@ -17,7 +17,8 @@
     <section class="content">
         <div class="col-md-6">
             <div class="card card-primary">
-                <form action="{{ route('prestation.update', [$prestation->id]) }}" method="post">
+                <form action="{{ route('prestations.update', [$prestation->id]) }}" method="post">
+                    @method('PUT')
                     @csrf
                     <div class="card-body">
                         <div class="form-group">

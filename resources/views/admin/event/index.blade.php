@@ -6,7 +6,7 @@
             <h1 class="m-0 text-dark"> Evènements </h1>
         </div><!-- /.col -->
         <div class="col">
-            <a href="{{ route('event.create') }}">
+            <a href="{{ route('events.create') }}">
                 <button class="btn btn-success float-right">Create</button>
             </a>
         </div>
@@ -63,7 +63,7 @@
                                 html = "<div class='float-right'>" +
                                     "<div class='row'>" +
                                     "<div class='col-md-5 col-lg-5'>" +
-                                    "<a href='" + route('event.edit', [row.id]) + "'>" +
+                                    "<a href='" + route('events.edit', [row.id]) + "'>" +
                                     "<button type='button' class='btn btn-primary btn-sm'>Modifier</button>" +
                                     "</a>" +
                                     "</div>" +
@@ -94,8 +94,8 @@
                                     });
 
                                     $.ajax({
-                                        method: "post",
-                                        url: route('event.delete', [e.target.dataset.idevent]),
+                                        method: "DELETE",
+                                        url: route('event.destroy', [e.target.dataset.idevent]),
                                     }).done(function (msg) {
                                         tableEvents.draw();
                                         if (msg === 'ok') {

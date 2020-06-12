@@ -1,0 +1,18 @@
+    var Ziggy = {
+        namedRoutes: {"admin.dashboard":{"uri":"admin","methods":["GET","HEAD"],"domain":null},"users.index":{"uri":"admin\/users","methods":["GET","HEAD"],"domain":null},"users.create":{"uri":"admin\/users\/create","methods":["GET","HEAD"],"domain":null},"users.store":{"uri":"admin\/users","methods":["POST"],"domain":null},"users.show":{"uri":"admin\/users\/{user}","methods":["GET","HEAD"],"domain":null},"users.edit":{"uri":"admin\/users\/{user}\/edit","methods":["GET","HEAD"],"domain":null},"users.update":{"uri":"admin\/users\/{user}","methods":["PUT","PATCH"],"domain":null},"users.destroy":{"uri":"admin\/users\/{user}","methods":["DELETE"],"domain":null},"list.users":{"uri":"admin\/list-users","methods":["GET","HEAD"],"domain":null},"prestations.index":{"uri":"admin\/prestations","methods":["GET","HEAD"],"domain":null},"prestations.create":{"uri":"admin\/prestations\/create","methods":["GET","HEAD"],"domain":null},"prestations.store":{"uri":"admin\/prestations","methods":["POST"],"domain":null},"prestations.show":{"uri":"admin\/prestations\/{prestation}","methods":["GET","HEAD"],"domain":null},"prestations.edit":{"uri":"admin\/prestations\/{prestation}\/edit","methods":["GET","HEAD"],"domain":null},"prestations.update":{"uri":"admin\/prestations\/{prestation}","methods":["PUT","PATCH"],"domain":null},"prestations.destroy":{"uri":"admin\/prestations\/{prestation}","methods":["DELETE"],"domain":null},"prestations.list":{"uri":"admin\/list-prestations","methods":["GET","HEAD"],"domain":null},"invoice.index":{"uri":"admin\/invoices","methods":["GET","HEAD"],"domain":null},"quotes.index":{"uri":"admin\/quotes","methods":["GET","HEAD"],"domain":null},"customers.index":{"uri":"admin\/customers","methods":["GET","HEAD"],"domain":null},"customers.create":{"uri":"admin\/customers\/create","methods":["GET","HEAD"],"domain":null},"customers.store":{"uri":"admin\/customers","methods":["POST"],"domain":null},"customers.show":{"uri":"admin\/customers\/{customer}","methods":["GET","HEAD"],"domain":null},"customers.edit":{"uri":"admin\/customers\/{customer}\/edit","methods":["GET","HEAD"],"domain":null},"customers.update":{"uri":"admin\/customers\/{customer}","methods":["PUT","PATCH"],"domain":null},"customers.destroy":{"uri":"admin\/customers\/{customer}","methods":["DELETE"],"domain":null},"quotes.list":{"uri":"admin\/list-customers","methods":["GET","HEAD"],"domain":null},"event.index":{"uri":"admin\/events","methods":["GET","HEAD"],"domain":null},"event.create":{"uri":"admin\/events\/create","methods":["GET","HEAD"],"domain":null},"event.store":{"uri":"admin\/events\/store","methods":["POST"],"domain":null},"event.edit":{"uri":"admin\/events\/{event}\/edit","methods":["GET","HEAD"],"domain":null},"event.update":{"uri":"admin\/events\/{event}","methods":["POST"],"domain":null},"event.delete":{"uri":"admin\/events\/{event}\/delete","methods":["POST"],"domain":null},"quote.create":{"uri":"admin\/quote\/create","methods":["GET","HEAD"],"domain":null},"quote.store":{"uri":"admin\/quote\/store","methods":["POST"],"domain":null},"quote.edit":{"uri":"admin\/quote\/{event}\/edit","methods":["GET","HEAD"],"domain":null},"quote.update":{"uri":"admin\/quote\/{event}","methods":["POST"],"domain":null},"quote.delete":{"uri":"admin\/quote\/{event}\/delete","methods":["POST"],"domain":null}},
+        baseUrl: 'http://localhost/',
+        baseProtocol: 'http',
+        baseDomain: 'localhost',
+        basePort: false,
+        defaultParameters: []
+    };
+
+    if (typeof window !== 'undefined' && typeof window.Ziggy !== 'undefined') {
+        for (var name in window.Ziggy.namedRoutes) {
+            Ziggy.namedRoutes[name] = window.Ziggy.namedRoutes[name];
+        }
+    }
+
+    export {
+        Ziggy
+    }

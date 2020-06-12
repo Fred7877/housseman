@@ -17,14 +17,14 @@
     <section class="content">
         <div class="col-md-6">
             <div class="card card-primary">
-                <form method="post" action="{{ route('prestations.store') }}">
+                <form action="{{ route('prestations.update', [$prestation->id]) }}" method="post">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
 
                             <label for="libelle">Libellé</label>
                             <input type="text" class="form-control @error('libelle') is-invalid @enderror" id="libelle" name="libelle"
-                                   placeholder="Enter your first name" value="{{ old('libelle') }}">
+                                   placeholder="Enter your first name" value="{{ $prestation->libelle }}">
 
                             @error('libelle')
                             <div class="error invalid-feedback d-block">{{ $message }}</div>
@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label for="price">Prix</label>
                             <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
-                                   placeholder="Enter your last name" value="{{ old('price') }}">
+                                   placeholder="Enter your last name" value="{{ $prestation->price }}">
 
                             @error('price')
                             <div class="error invalid-feedback d-block">{{ $message }}</div>
@@ -44,7 +44,7 @@
 
                         <div class="form-group">
                             <label for="details">Détails</label>
-                            <textarea id="details" class="form-control" name="details" rows="5">{{ old('details') }}</textarea>
+                            <textarea id="details" class="form-control" name="details" rows="5">{{ $prestation->details }}</textarea>
                         </div>
                     </div>
 

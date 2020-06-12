@@ -41,7 +41,7 @@ class EventController extends Controller
             ]
         ));
 
-        return redirect()->route('event.index')->with('success', 'L\' évènement à bien été modifié !');
+        return redirect()->route('events.index')->with('success', 'L\' évènement à bien été modifié !');
     }
 
     public function delete(Event $event)
@@ -65,7 +65,7 @@ class EventController extends Controller
             'end'
         ]));
 
-        return redirect()->route('event.index')->with('success', 'Nouvel évènement a été enregistré !');
+        return redirect()->route('events.index')->with('success', 'Nouvel évènement a été enregistré !');
     }
 
     public function list()

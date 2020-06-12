@@ -6,7 +6,7 @@
             <h1 class="m-0 text-dark"> Modifier un évènement </h1>
         </div><!-- /.col -->
         <div class="col">
-            <a href="{{ route('event.index') }}">
+            <a href="{{ route('events.index') }}">
                 <button class="btn btn-danger float-right">Annuler</button>
             </a>
         </div>
@@ -17,7 +17,8 @@
     <section class="content">
         <div class="col-md-6">
             <div class="card card-primary">
-                <form method="post" action="{{ route('event.update', [$event->id]) }}">
+                <form method="post" action="{{ route('events.update', [$event->id]) }}">
+                    @method('PUT')
                     @csrf
                     <div class="card-body">
                         <div class="form-group">

@@ -6,7 +6,7 @@
             <h1 class="m-0 text-dark"> Create User </h1>
         </div><!-- /.col -->
         <div class="col">
-            <a href="{{ route('user.index') }}">
+            <a href="{{ route('users.index') }}">
                 <button class="btn btn-danger float-right">Annuler</button>
             </a>
         </div>
@@ -17,7 +17,7 @@
     <section class="content">
         <div class="col-md-6">
             <div class="card card-primary">
-                <form method="post" action="{{ route('store.user') }}">
+                <form method="post" action="{{ route('users.store') }}">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Models\Customer;
 use App\Models\Organization;
-use App\Models\Prestation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -19,7 +18,7 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        return view('admin.customers.index');
+        return view('admin.customer.index');
     }
 
     public function create()
@@ -57,7 +56,7 @@ class CustomerController extends Controller
         return redirect()->route('customers.index')->with('success','The customer updated successfully!');
     }
 
-    public function delete(Customer $customer)
+    public function destroy(Customer $customer)
     {
         if(request()->ajax()){
 
@@ -95,6 +94,4 @@ class CustomerController extends Controller
 
         return view('admin.user.index');
     }
-
-
 }

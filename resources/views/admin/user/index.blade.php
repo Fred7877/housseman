@@ -6,7 +6,7 @@
             <h1 class="m-0 text-dark"> Utilisateurs </h1>
         </div><!-- /.col -->
         <div class="col">
-            <a href="{{ route('create.user') }}">
+            <a href="{{ route('users.create') }}">
                 <button class="btn btn-success float-right">Create</button>
             </a>
         </div>
